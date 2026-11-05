@@ -9,6 +9,9 @@ export interface Task {
 let nextId = 1;
 
 export function addTask(tasks: Task[], title: string): Task[] {
+  while (tasks.some((task) => task.id === nextId)) {
+    nextId++;
+  }
   const newTask: Task = { id: nextId++, title, status: "todo" };
   return [...tasks, newTask];
 }
@@ -17,6 +20,18 @@ export function completeTask(tasks: Task[], id: number): Task[] {
   return tasks.map((task) =>
     task.id === id ? { ...task, status: "done" } : task,
   );
+}
+
+export function advanceTask(tasks: Task[], id: number): Task[] {
+  return tasks.map((task) => {
+    if (task.id !== id) {
+      return task;
+    }
+
+    const status: TaskStatus =
+      task.status === "todo" ? "in-progress" : "done";
+    return { ...task, status };
+  });
 }
 
 export function filterByStatus(
