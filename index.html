@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A calm, colorful space to keep your next steps in view."
+    />
+    <title>Little Wins - a thoughtful task list</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="wordmark" href="./" aria-label="Little Wins home">
+          <span class="wordmark-mark" aria-hidden="true">✳</span>
+          little wins
+        </a>
+        <span class="topbar-note">A little progress goes a long way.</span>
+      </header>
+
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">YOUR DAY, AT YOUR PACE</p>
+        <h1 id="page-title">Make room for<br /><span>what matters.</span></h1>
+        <p class="intro-copy">
+          Gather your next steps in one gentle place. Start small; momentum will
+          follow.
+        </p>
+      </section>
+
+      <section class="task-panel" aria-label="Your tasks">
+        <form id="task-form" class="task-form">
+          <label class="sr-only" for="title">What would you like to do?</label>
+          <span class="input-spark" aria-hidden="true">✦</span>
+          <input
+            id="title"
+            name="title"
+            type="text"
+            placeholder="Add a task to your list..."
+            autocomplete="off"
+            required
+          />
+          <button class="add-button" type="submit">
+            <span aria-hidden="true">+</span> Add task
+          </button>
+        </form>
+
+        <div class="list-heading">
+          <div>
+            <p class="eyebrow">YOUR CHECKLIST</p>
+            <h2>Tasks <span id="task-count" class="task-count">0</span></h2>
+          </div>
+          <span class="list-decoration" aria-hidden="true">✳</span>
+        </div>
+
+        <nav class="filters" aria-label="Filter tasks">
+          <button
+            class="filter-button is-active"
+            type="button"
+            data-status="all"
+            aria-pressed="true"
+          >
+            All
+          </button>
+          <button
+            class="filter-button"
+            type="button"
+            data-status="todo"
+            aria-pressed="false"
+          >
+            To do
+          </button>
+          <button
+            class="filter-button"
+            type="button"
+            data-status="in-progress"
+            aria-pressed="false"
+          >
+            In progress
+          </button>
+          <button
+            class="filter-button"
+            type="button"
+            data-status="done"
+            aria-pressed="false"
+          >
+            Done
+          </button>
+        </nav>
+
+        <ul id="task-list" class="task-list" aria-live="polite"></ul>
+        <p id="empty-state" class="empty-state">
+          Your list is a blank page. Add one small thing to get started.
+        </p>
+      </section>
+
+      <footer class="footer">
+        <span>One thing at a time.</span>
+        <span>Made for your next little win <span aria-hidden="true">♥</span></span>
+      </footer>
+    </main>
+  </body>
+</html>
